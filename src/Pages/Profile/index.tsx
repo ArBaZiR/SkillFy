@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function Profile() {
   const [page, setPage] = useState(0);
-  const user = useSelector((state) => state.userSlice.user);
+  const user = useSelector((state: any) => state.userSlice.user);
   const navBtnAr = [
     {
       title: "About",

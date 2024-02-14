@@ -7,7 +7,7 @@ import { setUser } from "../../../../store/slices/userSlice";
 
 export default function TeatherSkills() {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userSlice.user);
+  const user = useSelector((state: any) => state.userSlice.user);
   //
   const [editBlock, setEditBlock] = useState(false);
   const [infoBtnInd, setInfoBtnInd] = useState(0);

@@ -11,7 +11,7 @@ import { setUser } from "../../../store/slices/userSlice";
 export default function Register() {
   const dispatch = useDispatch();
   //
-  function Registration(data: object) {
+  function Registration(data: any) {
     dispatch(setUser(data.data));
     localStorage.setItem("token", JSON.stringify(data.token));
   }

@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 
 export default function Router() {
   //
-  const status = useSelector((state) => state.userSlice.status);
+  const status = useSelector((state: any) => state.userSlice.status);
 
   const router = createBrowserRouter([
     {

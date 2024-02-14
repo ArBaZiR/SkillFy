@@ -11,7 +11,7 @@ import { setUser } from "../../../store/slices/userSlice";
 export default function Login() {
   const dispatch = useDispatch();
   //
-  function SingIn(data: object) {
+  function SingIn(data: any) {
     dispatch(setUser(data.data));
     localStorage.setItem("token", JSON.stringify(data.token));
   }

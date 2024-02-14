@@ -5,20 +5,19 @@ import { useDispatch } from "react-redux";
 import { removeUser } from "../../../store/slices/userSlice";
 
 type TypeProps = {
-  user: object;
+  user: any;
 };
 
 export default function MainBlock({ user }: TypeProps) {
   const dispatch = useDispatch();
-  const { name, email } = user;
 
   return (
     <div className={style.block}>
       <div className={style.profile}>
         <img src="/public/img/girl.png" alt="#!" />
         <div>
-          <p className={style.userName}>{name}</p>
-          <p className={style.userEmail}>{email}</p>
+          <p className={style.userName}>{user.name}</p>
+          <p className={style.userEmail}>{user.email}</p>
         </div>
       </div>
       <div className={style.main__inform}>

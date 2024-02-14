@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../../../../store/slices/userSlice";
 
 export default function AboutMe() {
-  const user = useSelector((state) => state.userSlice.user);
+  const user = useSelector((state: any) => state.userSlice.user);
   const dispatch = useDispatch();
   //
   const [btnState, setBtnState] = useState(false);

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 type TypeBtnAr = {
   page: number;
   setPage: any;
-  navBtnAr: Array<Object>;
+  navBtnAr: Array<any>;
 };
 
 export default function NavBtn({ page, setPage, navBtnAr }: TypeBtnAr) {
