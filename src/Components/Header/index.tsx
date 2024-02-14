@@ -43,11 +43,11 @@ export default function Header() {
             ))}
           </div>
           <label className={style.search}>
-            <img src="/public/icon/search.svg" alt="#!" />
+            <img src="/icon/search.svg" alt="#!" />
             <input type="text" placeholder="Search" />
           </label>
           <button className={style.cart}>
-            <img src="/public/icon/cart.svg" alt="" />
+            <img src="/icon/cart.svg" alt="" />
           </button>
         </div>
       )}

@@ -14,7 +14,7 @@ export default function MainBlock({ user }: TypeProps) {
   return (
     <div className={style.block}>
       <div className={style.profile}>
-        <img src="/public/img/girl.png" alt="#!" />
+        <img src="/img/girl.png" alt="#!" />
         <div>
           <p className={style.userName}>{user.name}</p>
           <p className={style.userEmail}>{user.email}</p>

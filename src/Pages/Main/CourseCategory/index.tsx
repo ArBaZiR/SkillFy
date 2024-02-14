@@ -7,22 +7,22 @@ export default function CourseCategory() {
   const btn = [
     {
       title: "Design",
-      img: "/public/icon/Design.svg",
+      img: "/icon/Design.svg",
       category: "",
     },
     {
       title: "Development",
-      img: "/public/icon/Development.svg",
+      img: "/icon/Development.svg",
       category: "",
     },
     {
       title: "IT & Software",
-      img: "/public/icon/Monitor.svg",
+      img: "/icon/Monitor.svg",
       category: "",
     },
     {
       title: "Business",
-      img: "/public/icon/Business.svg",
+      img: "/icon/Business.svg",
       category: "",
     },
     {
@@ -32,7 +32,7 @@ export default function CourseCategory() {
     },
     {
       title: "Photography",
-      img: "/public/icon/Photography.svg",
+      img: "/icon/Photography.svg",
       category: "",
     },
   ];

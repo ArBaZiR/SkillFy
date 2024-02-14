@@ -31,7 +31,7 @@ export default function LearnSearch() {
           </button>
         </label>
       </div>
-      <img src="/public/img/girl.png" alt="" />
+      <img src="/img/girl.png" alt="" />
     </div>
   );
 }
