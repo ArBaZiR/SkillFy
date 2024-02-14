@@ -27,7 +27,7 @@ export default function CourseCategory() {
     },
     {
       title: "Marketing",
-      img: "/public/icon/Marketing.svg",
+      img: "/icon/Marketing.svg",
       category: "",
     },
     {
