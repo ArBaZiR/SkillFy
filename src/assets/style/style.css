@@ -1,0 +1,16 @@
+/*  */
+html {
+  scrollbar-gutter: stable;
+  /* Уберает скачки скрол-бара */
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  max-width: 1310px;
+  padding: 0 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+}

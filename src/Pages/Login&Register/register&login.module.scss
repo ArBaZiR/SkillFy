@@ -1,0 +1,162 @@
+//
+
+.block {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.main__block {
+  margin-top: 30px;
+  //
+
+  h2 {
+    font-size: 35px;
+  }
+  > p {
+    margin-top: 20px;
+
+    &:nth-child(2) {
+      margin-top: 10px;
+      font-size: 19px;
+      color: #5f5982;
+    }
+
+    a {
+      color: #bd514b;
+      cursor: pointer;
+      font-weight: 600;
+      margin-left: 7px;
+    }
+  }
+}
+
+.input__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 30px;
+  margin-top: 30px;
+
+  > p {
+    span {
+      cursor: pointer;
+      font-weight: 600;
+      color: #bd514b;
+    }
+  }
+
+  label {
+    p {
+      margin: 0 0 20px 5px;
+    }
+  }
+
+  input {
+    width: 500px;
+    padding: 20px;
+    border: 1px solid #cac6d4;
+    border-radius: 5px;
+  }
+}
+
+.role__block {
+  text-align: center;
+
+  p {
+    font-size: 20px;
+  }
+
+  > div {
+    display: flex;
+    column-gap: 30px;
+    margin-top: 30px;
+  }
+
+  button {
+    color: #ffffff;
+    background-color: #f56962;
+    transition: 0.15s;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px 55px;
+    transform: translateY(0);
+
+    &:active {
+      background-color: #bd514b;
+      transform: translateY(2.5px);
+    }
+  }
+
+  .active_btn {
+    background-color: rgb(46, 46, 46);
+  }
+}
+
+.create__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+
+  p {
+    position: relative;
+    font-size: 20px;
+    color: #5f5982;
+
+    &::after,
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: #cac6d4;
+      width: 200px;
+      height: 2px;
+    }
+
+    &::after {
+      top: 50%;
+      left: -220px;
+    }
+
+    &::before {
+      top: 50%;
+      right: -220px;
+    }
+  }
+
+  button {
+    width: 500px;
+    transition: 0.15s;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 20px;
+    transform: translateY(0);
+
+    &:active {
+      transform: translateY(2.5px);
+    }
+  }
+
+  .login_btn {
+    color: #ffffff;
+    background-color: #f56962;
+
+    &:active {
+      background-color: #bd514b;
+    }
+  }
+
+  .google_btn {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    color: #5f5982;
+    border: 2px solid #cac6d4;
+
+    &::before {
+      margin: 10px 20px 0 0;
+      content: url(/public/icon/google.svg);
+    }
+  }
+}

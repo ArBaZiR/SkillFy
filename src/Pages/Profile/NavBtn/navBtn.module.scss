@@ -1,0 +1,41 @@
+//
+
+.block {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 85px 0;
+}
+
+.nav_btn {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 40px;
+  justify-content: center;
+  column-gap: 70px;
+
+  button {
+    position: relative;
+    color: #000000;
+
+    &::after {
+      position: absolute;
+      content: "";
+      opacity: 0;
+      width: 70px;
+      height: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      background-color: #f68c20;
+      transition: 0.2s;
+    }
+
+    &.active {
+      color: #f68c20;
+      &::after {
+        bottom: -15px;
+        opacity: 1;
+      }
+    }
+  }
+}
