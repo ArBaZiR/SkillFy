@@ -18,6 +18,8 @@ export function UserAuth() {
       })
         .then((data) => data.json())
         .then((data) => !data.statusCode && dispatch(setUser(data)));
+    } else {
+      null;
     }
   }, []);
 }

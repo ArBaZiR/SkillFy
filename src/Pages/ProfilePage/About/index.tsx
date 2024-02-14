@@ -7,7 +7,7 @@ import AboutMe from "./AboutMe";
 import { useSelector } from "react-redux";
 
 export default function About() {
-  const role = useSelector((state) => state.userSlice.user.role);
+  const role = useSelector((state: any) => state.userSlice.user.role);
   //
   return (
     //
