@@ -1,12 +1,12 @@
 //
-import style from "./static.module.scss";
+import style from "./mainPage.module.scss";
 import { Outlet } from "react-router-dom";
 //
-import Header from "../Components/Header";
+import Header from "../../Components/Header";
 //
-import { UserAuth } from "../hooks";
+import { UserAuth } from "../../hooks";
 
-export default function StaticRouter() {
+export default function MainPage() {
   //
   UserAuth();
   //

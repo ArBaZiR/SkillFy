@@ -1,6 +1,11 @@
 //
 
 .block {
+  max-width: 1310px;
+  padding: 0 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+
   header {
     animation-name: blockAnimateHeader;
     animation-duration: 0.85s;

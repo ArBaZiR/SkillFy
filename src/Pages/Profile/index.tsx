@@ -19,7 +19,7 @@ export default function Profile() {
     },
     {
       title: "Course",
-      link: "/course",
+      link: "/courses",
     },
     {
       title: "Notes",

@@ -6,7 +6,7 @@ import { setUser } from "../store/slices/userSlice";
 
 export function UserAuth() {
   const dispatch = useDispatch();
-
+  //
   useEffect(() => {
     const getToken = JSON.parse(localStorage.getItem("token"));
     if (getToken) {

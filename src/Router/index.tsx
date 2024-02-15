@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 //
-import StaticRouter from "../StaticRouter";
+import MainPage from "../Pages/MainPage";
 //  Pages
 import Main from "../Pages/Main";
 import Register from "../Pages/Login&Register/Register";
@@ -21,7 +21,7 @@ export default function Router() {
 
   const router = createBrowserRouter([
     {
-      element: <StaticRouter />,
+      element: <MainPage />,
       children: [
         {
           path: "*",
@@ -43,11 +43,11 @@ export default function Router() {
           path: "profile",
           element: <Profile />,
         },
-        status && {
-          path: "course",
-          element: <Courses />,
-        },
       ],
+    },
+    status && {
+      element: <Courses />,
+      path: "courses",
     },
   ]);
 
