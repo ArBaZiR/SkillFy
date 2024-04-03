@@ -4,11 +4,14 @@ import style from "./mainBlock.module.scss";
 import { useDispatch } from "react-redux";
 import { removeUser } from "../../../store/slices/userSlice";
 
-type TypeProps = {
-  user: any;
-};
-
-export default function MainBlock({ user }: TypeProps) {
+export default function MainBlock({
+  user,
+}: {
+  user: {
+    name: string;
+    email: string;
+  };
+}) {
   const dispatch = useDispatch();
 
   return (

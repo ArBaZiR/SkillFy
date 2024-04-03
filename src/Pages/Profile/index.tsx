@@ -9,9 +9,19 @@ import About from "../ProfilePage/About";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+type TypeUser = {
+  userSlice: {
+    user: {
+      role: string;
+      name: string;
+      email: string;
+    };
+  };
+};
+
 export default function Profile() {
-  const [page, setPage] = useState(0);
-  const user = useSelector((state: any) => state.userSlice.user);
+  const [page, setPage] = useState<number>(0);
+  const user = useSelector(({ userSlice }: TypeUser) => userSlice.user);
   const navBtnAr = [
     {
       title: "About",
@@ -20,26 +30,6 @@ export default function Profile() {
     {
       title: "Course",
       link: "/courses",
-    },
-    {
-      title: "Notes",
-      page: "",
-    },
-    {
-      title: "Project",
-      page: "",
-    },
-    {
-      title: "Podcast",
-      page: "",
-    },
-    {
-      title: "Book",
-      page: "",
-    },
-    {
-      title: "Review",
-      page: "",
     },
   ];
 

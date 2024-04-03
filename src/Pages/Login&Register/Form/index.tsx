@@ -20,7 +20,7 @@ export default function Form({ title, status, func }: TypeProps) {
   const roleArray = ["Student", "Teather"];
   //
   function Base(link: string, obj: object) {
-    return fetch(`https://0d4ea3e525f71456.mokky.dev/${link}`, {
+    fetch(`https://0d4ea3e525f71456.mokky.dev/${link}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -29,7 +29,7 @@ export default function Form({ title, status, func }: TypeProps) {
       body: JSON.stringify(obj),
     })
       .then((data) => data.json())
-      .then((data) => {
+      .then((data: { statusCode: string }) => {
         data.statusCode
           ? status
             ? alert("Taкой Email Уже используется")

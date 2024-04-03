@@ -8,7 +8,7 @@ export function UserAuth() {
   const dispatch = useDispatch();
   //
   useEffect(() => {
-    const getToken = JSON.parse(localStorage.getItem("token"));
+    const getToken: string = JSON.parse(localStorage.getItem("token"));
     if (getToken) {
       fetch("https://0d4ea3e525f71456.mokky.dev/auth_me", {
         method: "GET",
@@ -17,7 +17,10 @@ export function UserAuth() {
         },
       })
         .then((data) => data.json())
-        .then((data) => !data.statusCode && dispatch(setUser(data)));
+        .then(
+          (data: { statusCode: string }) =>
+            !data.statusCode && dispatch(setUser(data))
+        );
     }
   }, []);
 }

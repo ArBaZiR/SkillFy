@@ -5,8 +5,20 @@ import style from "./reviews.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { setUser } from "../../../../store/slices/userSlice";
 
+type TypeUserSlice = {
+  userSlice: {
+    user: {
+      aboutMe: {
+        title: string;
+        text: string;
+      };
+    };
+  };
+};
+
 export default function AboutMe() {
-  const user = useSelector((state: any) => state.userSlice.user);
+  const user = useSelector((state: TypeUserSlice) => state.userSlice.user);
+
   const dispatch = useDispatch();
   //
   const [btnState, setBtnState] = useState(false);
@@ -29,7 +41,7 @@ export default function AboutMe() {
         }),
       })
         .then((data) => data.json())
-        .then((data) => dispatch(setUser(data)));
+        .then((data: object) => dispatch(setUser(data)));
     } else {
       setBtnState(true);
       alert("Введите Заголовок");

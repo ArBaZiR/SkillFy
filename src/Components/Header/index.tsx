@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const status = useSelector((state: any) => state.userSlice.status);
+  const status = useSelector(
+    (state: {
+      userSlice: {
+        status: boolean;
+      };
+    }) => state.userSlice.status
+  );
 
   const btn = [
     {

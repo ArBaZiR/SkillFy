@@ -5,9 +5,24 @@ import style from "./info.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../../../store/slices/userSlice";
 
+type TypeUserSlice = {
+  userSlice: {
+    user: {
+      id: number;
+      info: {
+        skill: string[];
+        exp: string[];
+        edducation: string[];
+        awward: string[];
+        other: string[];
+      };
+    };
+  };
+};
+
 export default function TeatherSkills() {
   const dispatch = useDispatch();
-  const user = useSelector((state: any) => state.userSlice.user);
+  const user = useSelector((state: TypeUserSlice) => state.userSlice.user);
   //
   const [editBlock, setEditBlock] = useState(false);
   const [infoBtnInd, setInfoBtnInd] = useState(0);
@@ -87,7 +102,7 @@ export default function TeatherSkills() {
   }
 
   function RemoveInfo(i: number) {
-    // Пока что пирдумал Так,, но Это полная ХУЙНЯ
+    // Пока что пирдумал так, но Это полная ХУЙНЯ
     const deleteInfo = [...infoArray[infoBtnInd].text];
     if (deleteInfo[i] !== "None") {
       deleteInfo.splice(i, 1);
@@ -120,7 +135,7 @@ export default function TeatherSkills() {
           <div key={i}>
             <h4>{el.title}</h4>
             <div className={style.info__skills}>
-              {el.text.map((text: Array<string>, i: number) => (
+              {el.text.map((text, i: number) => (
                 <p key={i}>{text}</p>
               ))}
             </div>
@@ -131,7 +146,7 @@ export default function TeatherSkills() {
       <div className={`${style.edit__block} ${editBlock && style.active}`}>
         <h2>{infoArray[infoBtnInd].title}</h2>
         <div>
-          {infoArray[infoBtnInd].text.map((el: any, i: number) => (
+          {infoArray[infoBtnInd].text.map((el, i: number) => (
             <p key={i} onClick={() => RemoveInfo(i)}>
               {el}
             </p>
