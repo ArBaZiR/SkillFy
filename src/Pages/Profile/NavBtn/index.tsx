@@ -2,14 +2,14 @@
 import style from "./navBtn.module.scss";
 import { Link } from "react-router-dom";
 
-type TypeBtnAr = {
+type TypeProps = {
   page: number;
   setPage: Function;
   navBtnAr: object[];
 };
 
 //
-export default function NavBtn({ page, setPage, navBtnAr }: TypeBtnAr) {
+export default function NavBtn({ page, setPage, navBtnAr }: TypeProps) {
   return (
     <div className={style.block}>
       <div className={style.nav_btn}>

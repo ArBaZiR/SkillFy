@@ -11,14 +11,18 @@ import Main from "../Pages/Main";
 import Register from "../Pages/Login&Register/Register";
 import Login from "../Pages/Login&Register/Login";
 import Profile from "../Pages/Profile";
-import Courses from "../Pages/Courses";
 // REDAX
 import { useSelector } from "react-redux";
 
 export default function Router() {
   //
-  const status = useSelector((state: any) => state.userSlice.status);
-
+  const status = useSelector(
+    (state: {
+      userSlice: {
+        status: boolean;
+      };
+    }) => state.userSlice.status
+  );
   const router = createBrowserRouter([
     {
       element: <MainPage />,
@@ -39,15 +43,11 @@ export default function Router() {
           path: "register",
           element: !status ? <Register /> : <Navigate to={"/profile"} />,
         },
-        status && {
+        {
           path: "profile",
-          element: <Profile />,
+          element: status ? <Profile /> : <Navigate to={"/"} />,
         },
       ],
-    },
-    status && {
-      element: <Courses />,
-      path: "courses",
     },
   ]);
 

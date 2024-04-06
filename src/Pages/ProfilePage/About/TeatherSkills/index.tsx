@@ -24,9 +24,9 @@ export default function TeatherSkills() {
   const dispatch = useDispatch();
   const user = useSelector((state: TypeUserSlice) => state.userSlice.user);
   //
-  const [editBlock, setEditBlock] = useState(false);
-  const [infoBtnInd, setInfoBtnInd] = useState(0);
-  const [inputTitle, setInputTitle] = useState("");
+  const [editBlock, setEditBlock] = useState<boolean>(false);
+  const [infoBtnInd, setInfoBtnInd] = useState<number>(0);
+  const [inputTitle, setInputTitle] = useState<string>("");
   const [userInfo, setUserInfo] = useState(user.info ? user.info : {});
   //
   useEffect(() => {
@@ -91,7 +91,10 @@ export default function TeatherSkills() {
       }),
     })
       .then((data) => data.json())
-      .then((data) => dispatch(setUser(data)));
+      .then(
+        (data: { statusCode: number }) =>
+          !data.statusCode && dispatch(setUser(data))
+      );
   }
 
   function Submit(obj: object) {

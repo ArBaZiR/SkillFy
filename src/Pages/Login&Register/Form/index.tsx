@@ -29,7 +29,7 @@ export default function Form({ title, status, func }: TypeProps) {
       body: JSON.stringify(obj),
     })
       .then((data) => data.json())
-      .then((data: { statusCode: string }) => {
+      .then((data: { statusCode: number }) => {
         data.statusCode
           ? status
             ? alert("Taкой Email Уже используется")

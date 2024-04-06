@@ -8,6 +8,7 @@ import { setUser } from "../../../../store/slices/userSlice";
 type TypeUserSlice = {
   userSlice: {
     user: {
+      id: number;
       aboutMe: {
         title: string;
         text: string;
@@ -18,12 +19,15 @@ type TypeUserSlice = {
 
 export default function AboutMe() {
   const user = useSelector((state: TypeUserSlice) => state.userSlice.user);
-
   const dispatch = useDispatch();
   //
-  const [btnState, setBtnState] = useState(false);
-  const [title, setTitle] = useState(!!user.aboutMe ? user.aboutMe.title : "");
-  const [text, setText] = useState(!!user.aboutMe ? user.aboutMe.text : "");
+  const [btnState, setBtnState] = useState<boolean>(false);
+  const [title, setTitle] = useState<string>(
+    !!user.aboutMe ? user.aboutMe.title : ""
+  );
+  const [text, setText] = useState<string>(
+    !!user.aboutMe ? user.aboutMe.text : ""
+  );
 
   function Submit() {
     if ((title && !text) || (title && text) || (!title && !text)) {
@@ -41,7 +45,10 @@ export default function AboutMe() {
         }),
       })
         .then((data) => data.json())
-        .then((data: object) => dispatch(setUser(data)));
+        .then(
+          (data: { statusCode: number }) =>
+            !data.statusCode && dispatch(setUser(data))
+        );
     } else {
       setBtnState(true);
       alert("Введите Заголовок");

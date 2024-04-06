@@ -29,7 +29,12 @@ export default function Profile() {
     },
     {
       title: "Course",
-      link: "/courses",
+      page: (
+        <h1>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
+          reprehenderit obcaecati dignissimos porro, eius voluptatibus.
+        </h1>
+      ),
     },
   ];
 
