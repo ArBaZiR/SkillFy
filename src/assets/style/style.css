@@ -1,9 +1,0 @@
-/*  */
-html {
-  scrollbar-gutter: stable;
-  /* Уберает скачки скрол-бара */
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-}

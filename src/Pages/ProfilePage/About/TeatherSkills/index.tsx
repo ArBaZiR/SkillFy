@@ -24,9 +24,9 @@ export default function TeatherSkills() {
   const dispatch = useDispatch();
   const user = useSelector((state: TypeUserSlice) => state.userSlice.user);
   //
-  const [editBlock, setEditBlock] = useState<boolean>(false);
-  const [infoBtnInd, setInfoBtnInd] = useState<number>(0);
-  const [inputTitle, setInputTitle] = useState<string>("");
+  const [editBlock, setEditBlock] = useState(false);
+  const [infoBtnInd, setInfoBtnInd] = useState(0);
+  const [inputTitle, setInputTitle] = useState("");
   const [userInfo, setUserInfo] = useState(user.info ? user.info : {});
   //
   useEffect(() => {
@@ -91,10 +91,7 @@ export default function TeatherSkills() {
       }),
     })
       .then((data) => data.json())
-      .then(
-        (data: { statusCode: number }) =>
-          !data.statusCode && dispatch(setUser(data))
-      );
+      .then((data) => !data.statusCode && dispatch(setUser(data)));
   }
 
   function Submit(obj: object) {
@@ -105,7 +102,7 @@ export default function TeatherSkills() {
   }
 
   function RemoveInfo(i: number) {
-    // Пока что пирдумал так, но Это полная ХУЙНЯ
+    // Пока что пирдумал так, но это полная ХУЙНЯ
     const deleteInfo = [...infoArray[infoBtnInd].text];
     if (deleteInfo[i] !== "None") {
       deleteInfo.splice(i, 1);
@@ -126,7 +123,7 @@ export default function TeatherSkills() {
   function InfoBtnClick(i: number) {
     setInfoBtnInd(i);
     setInputTitle("");
-    setEditBlock(!editBlock);
+    setEditBlock((e) => !e);
   }
 
   return (
@@ -138,7 +135,7 @@ export default function TeatherSkills() {
           <div key={i}>
             <h4>{el.title}</h4>
             <div className={style.info__skills}>
-              {el.text.map((text, i: number) => (
+              {el.text.map((text, i) => (
                 <p key={i}>{text}</p>
               ))}
             </div>
@@ -149,7 +146,7 @@ export default function TeatherSkills() {
       <div className={`${style.edit__block} ${editBlock && style.active}`}>
         <h2>{infoArray[infoBtnInd].title}</h2>
         <div>
-          {infoArray[infoBtnInd].text.map((el, i: number) => (
+          {infoArray[infoBtnInd].text.map((el, i) => (
             <p key={i} onClick={() => RemoveInfo(i)}>
               {el}
             </p>
@@ -174,7 +171,7 @@ export default function TeatherSkills() {
         </button>
       </div>
       <div
-        onClick={() => setEditBlock(!editBlock)}
+        onClick={() => setEditBlock((e) => !e)}
         className={`${style.background} ${editBlock && style.active}`}
       />
       <div className={style.social__links}></div>

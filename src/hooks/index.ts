@@ -18,7 +18,7 @@ export function UserAuth() {
       })
         .then((data) => data.json())
         .then(
-          (data: { statusCode: string }) =>
+          (data: { statusCode: number }) =>
             !data.statusCode && dispatch(setUser(data))
         );
     }

@@ -5,6 +5,7 @@ import MainBlock from "./MainBlock";
 import NavBtn from "./NavBtn";
 // Page
 import About from "../ProfilePage/About";
+import MyCourse from "../ProfilePage/MyCourse";
 // REDAX
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -20,8 +21,9 @@ type TypeUser = {
 };
 
 export default function Profile() {
-  const [page, setPage] = useState<number>(0);
-  const user = useSelector(({ userSlice }: TypeUser) => userSlice.user);
+  const [page, setPage] = useState(0);
+  const { user } = useSelector(({ userSlice }: TypeUser) => userSlice);
+
   const navBtnAr = [
     {
       title: "About",
@@ -29,12 +31,7 @@ export default function Profile() {
     },
     {
       title: "Course",
-      page: (
-        <h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-          reprehenderit obcaecati dignissimos porro, eius voluptatibus.
-        </h1>
-      ),
+      page: <MyCourse />,
     },
   ];
 

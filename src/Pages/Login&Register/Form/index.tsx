@@ -76,9 +76,10 @@ export default function Form({ title, status, func }: TypeProps) {
   return (
     <div className={style.input__block}>
       {status ? (
-        <label htmlFor="">
+        <label>
           <p>Full name</p>
           <input
+            value={name}
             onChange={(e) => setName(e.target.value)}
             type="name"
             placeholder="Your name"
@@ -87,26 +88,29 @@ export default function Form({ title, status, func }: TypeProps) {
       ) : (
         ""
       )}
-      <label htmlFor="">
+      <label>
         <p>Email address</p>
         <input
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           type="email"
           placeholder="Exampl@email.com"
         />
       </label>
-      <label htmlFor="">
+      <label>
         <p>Password</p>
         <input
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           placeholder="Enter password"
         />
       </label>
       {status ? (
-        <label htmlFor="">
+        <label>
           <p>Repeat Password</p>
           <input
+            value={repeatPassword}
             onChange={(e) => setRepeatPassword(e.target.value)}
             type="password"
             placeholder="Repeat Password"

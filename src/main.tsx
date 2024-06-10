@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import "./assets/style/reset.css";
-import "./assets/style/style.css";
+import "./assets/style/style.scss";
 //
 import Router from "./Router";
 // Redax

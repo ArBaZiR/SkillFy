@@ -1,6 +1,5 @@
 //
 import style from "./navBtn.module.scss";
-import { Link } from "react-router-dom";
 
 type TypeProps = {
   page: number;
@@ -13,15 +12,14 @@ export default function NavBtn({ page, setPage, navBtnAr }: TypeProps) {
   return (
     <div className={style.block}>
       <div className={style.nav_btn}>
-        {navBtnAr.map((el: any, i: number) => (
-          <Link key={i} to={el.link}>
-            <button
-              onClick={() => setPage(i)}
-              className={page == i ? style.active : ""}
-            >
-              {el.title}
-            </button>
-          </Link>
+        {navBtnAr.map((el: any, i) => (
+          <button
+            key={i}
+            onClick={() => setPage(i)}
+            className={page == i ? style.active : ""}
+          >
+            {el.title}
+          </button>
         ))}
       </div>
     </div>
