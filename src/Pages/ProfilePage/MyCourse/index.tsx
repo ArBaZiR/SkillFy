@@ -45,9 +45,9 @@ export default function MyCourse() {
   }
 
   function RemoveElem(i: number) {
-    const gg = [...user.myCourse];
-    gg.splice(i, 1);
-    Base(gg);
+    const newArray = [...user.myCourse];
+    newArray.splice(i, 1);
+    Base(newArray);
   }
 
   return (
@@ -59,17 +59,19 @@ export default function MyCourse() {
         </Link>
       )}
       {user.myCourse.map((el, i) => (
-        <>
+        <div className={style.course__block}>
           <Link key={i} to={`/course/${el.title}`}>
             <div className={style.course}>
               <h1>{el.title}</h1>
               <p>{el.desc}</p>
             </div>
           </Link>
-          <button onClick={() => (setIdCourse(i), setContin(true))}>
-            Удалить
-          </button>
-        </>
+          <div>
+            <button onClick={() => (setIdCourse(i), setContin(true))}>
+              Удалить
+            </button>
+          </div>
+        </div>
       ))}
       {contin && (
         <>
