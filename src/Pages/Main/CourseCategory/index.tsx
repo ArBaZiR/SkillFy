@@ -41,7 +41,7 @@ export default function CourseCategory() {
     <div className={style.block}>
       <h2>Choice favourite course from top category </h2>
       <div className={style.btn__block}>
-        {btn.map((el, i: number) => (
+        {btn.map((el, i) => (
           <div key={i}>
             <img src={el.img} alt="#!" />
             <button>{el.title}</button>

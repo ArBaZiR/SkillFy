@@ -79,7 +79,7 @@ export default function MyCourse() {
             </Link>
             <div>
               <button onClick={() => (setIdCourse(i), setContin(true))}>
-                Удалить
+                Delete
               </button>
             </div>
           </div>

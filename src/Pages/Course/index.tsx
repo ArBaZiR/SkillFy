@@ -31,8 +31,8 @@ export default function Course() {
 
   useEffect(() => {
     if (user.myCourse) {
-      const boolean = user.myCourse.find((el) => el.courseTxt === path.name);
-      !boolean ? navigate("/profile") : setObject(boolean);
+      const boolean = user.myCourse.find((el) => el.title == path.name);
+      boolean ? setObject(boolean) : navigate("/profile");
     }
   }, [user.myCourse]);
 

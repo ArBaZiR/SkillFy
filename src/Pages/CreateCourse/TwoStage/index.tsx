@@ -50,7 +50,7 @@ export default function TwoStage({
               <button onClick={() => setContin(false)}>Back</button>
               <button
                 onClick={() =>
-                  user.myCourse.length < 3
+                  !user.myCourse || user.myCourse?.length < 3
                     ? (Submit(), navigate("/profile"))
                     : alert("Вы привысили количество допустимых курсов")
                 }

@@ -1,0 +1,43 @@
+//
+//
+.block {
+  margin-top: 50px;
+}
+
+.card__block {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 30px;
+}
+
+.card {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 30px;
+  text-align: center;
+
+  h2 {
+    font-size: 50px;
+  }
+
+  button {
+    margin-top: 10px;
+    color: #000000;
+    border: 2px solid rgb(214, 214, 214);
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 7px;
+    transition: 0.2s;
+
+    &:hover {
+      transform: translateY(3px);
+      background-color: #f56962;
+      color: #ffffff;
+    }
+
+    &:active {
+      background-color: #ad2c25;
+    }
+  }
+}

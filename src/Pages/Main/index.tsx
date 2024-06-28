@@ -1,8 +1,9 @@
 //
 import style from "./main.module.scss";
-//
-import CourseCategory from "./CourseCategory";
+//Components
 import LearnSearch from "./LearnSearch";
+import CourseCategory from "./CourseCategory";
+import CourseBlock from "./CourseBlock";
 
 export default function Main() {
   //
@@ -10,6 +11,7 @@ export default function Main() {
     <div className={style.block}>
       <LearnSearch />
       <CourseCategory />
+      <CourseBlock />
     </div>
   );
 }
