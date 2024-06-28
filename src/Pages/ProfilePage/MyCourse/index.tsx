@@ -62,7 +62,7 @@ export default function MyCourse() {
 
   return (
     <div className={style.block}>
-      {!course.length && <h2>Nothing courses</h2>}
+      {(!user.myCourse || !user.myCourse.length) && <h2>Nothing courses</h2>}
       {user.role !== "Student" && course.length < 3 && (
         <Link to={"/profile/createCourse"}>
           <button className={style.createCourse}>Create Course</button>
