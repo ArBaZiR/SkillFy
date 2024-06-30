@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 //
 
 type TypeUser = {
+  name: string;
   role: string;
   myCourse: [
     {
@@ -13,47 +14,62 @@ type TypeUser = {
     }
   ];
 };
-type TypeCrsInf = {
-  title: string;
-  desc: string;
-  courseTxt: string;
-};
 
 export default function CourseBlock() {
   const [allCard, setAllcard] = useState([
-    [
-      {
-        title: "",
-        desc: "",
-        courseTxt: "",
-      },
-    ],
+    {
+      name: "",
+      role: "",
+      myCourse: [
+        {
+          title: "",
+          desc: "",
+          courseTxt: "",
+        },
+      ],
+    },
   ]);
+  console.log(allCard.length);
+
+  // useEffect(() => {
+  //   fetch("https://0d4ea3e525f71456.mokky.dev/users")
+  //     .then((data) => data.json())
+  //     .then((data) => {
+  //       const myCrsAll: Array<[TypeCrsInf]> = [];
+  //       data.map(
+  //         (el: TypeUser) =>
+  //           el.myCourse && el.role !== "Student" && myCrsAll.push(el.myCourse)
+  //       );
+  //       setAllcard(myCrsAll);
+  //     });
+  // }, []);
 
   useEffect(() => {
-    fetch("https://0d4ea3e525f71456.mokky.dev/users")
+    fetch("https://0d4ea3e525f71456.mokky.dev/users?_select=myCourse,role,name")
       .then((data) => data.json())
       .then((data) => {
-        const myCrsAll: Array<[TypeCrsInf]> = [];
-        data.map(
-          (el: TypeUser) =>
-            el.myCourse && el.role !== "Student" && myCrsAll.push(el.myCourse)
-        );
-        setAllcard(myCrsAll);
+        const newArray: Array<TypeUser> = [];
+        data.map((el: TypeUser) => el.role !== "Student" && newArray.push(el));
+        setAllcard(newArray);
       });
   }, []);
 
   return (
     <div className={style.block}>
       <div className={style.card__block}>
-        {allCard.map((el) =>
-          el.map((el, i) => (
-            <div key={i} className={style.card}>
-              <h2>{el.title}</h2>
-              <h3>{el.desc}</h3>
-              <button>Don't Работает</button>
-            </div>
-          ))
+        {allCard.length !== 1 ? (
+          allCard.map((elem) =>
+            elem.myCourse.map((el, i) => (
+              <div key={i} className={style.card}>
+                <h2>{el.title}</h2>
+                <h3>{el.desc}</h3>
+                <h1>{elem.name}</h1>
+                <button>Don't Работает</button>
+              </div>
+            ))
+          )
+        ) : (
+          <h1>Ничего нету</h1>
         )}
       </div>
     </div>
