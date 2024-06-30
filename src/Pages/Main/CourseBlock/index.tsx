@@ -29,20 +29,6 @@ export default function CourseBlock() {
       ],
     },
   ]);
-  console.log(allCard.length);
-
-  // useEffect(() => {
-  //   fetch("https://0d4ea3e525f71456.mokky.dev/users")
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       const myCrsAll: Array<[TypeCrsInf]> = [];
-  //       data.map(
-  //         (el: TypeUser) =>
-  //           el.myCourse && el.role !== "Student" && myCrsAll.push(el.myCourse)
-  //       );
-  //       setAllcard(myCrsAll);
-  //     });
-  // }, []);
 
   useEffect(() => {
     fetch("https://0d4ea3e525f71456.mokky.dev/users?_select=myCourse,role,name")
