@@ -43,7 +43,7 @@ export default function CourseBlock() {
   return (
     <div className={style.block}>
       <div className={style.card__block}>
-        {allCard.length !== 1 ? (
+        {allCard[0].role == "" ? (
           allCard.map((elem) =>
             elem.myCourse.map((el, i) => (
               <div key={i} className={style.card}>
