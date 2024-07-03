@@ -34,16 +34,20 @@ export default function CourseBlock() {
     fetch("https://0d4ea3e525f71456.mokky.dev/users?_select=myCourse,role,name")
       .then((data) => data.json())
       .then((data) => {
-        const newArray: Array<TypeUser> = [];
-        data.map((el: TypeUser) => el.role !== "Student" && newArray.push(el));
-        setAllcard(newArray);
+        if (!data.statusCode) {
+          const newArray: Array<TypeUser> = [];
+          data.map(
+            (el: TypeUser) => el.role !== "Student" && newArray.push(el)
+          );
+          setAllcard(newArray);
+        }
       });
   }, []);
 
   return (
     <div className={style.block}>
       <div className={style.card__block}>
-        {allCard[0].role == "" ? (
+        {allCard[0].role !== "" ? (
           allCard.map((elem) =>
             elem.myCourse.map((el, i) => (
               <div key={i} className={style.card}>
