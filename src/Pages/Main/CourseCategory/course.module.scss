@@ -18,11 +18,12 @@
 
 .btn__block {
   display: flex;
-  column-gap: 50px;
+  margin-top: 40px;
+  column-gap: 40px;
 
   > div {
-    margin-top: 70px;
-    text-align: center;
+    display: flex;
+    column-gap: 10px;
   }
 
   img {
@@ -30,7 +31,6 @@
   }
 
   button {
-    margin-top: 20px;
     font-size: 22px;
     transition: 0.15s;
 

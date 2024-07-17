@@ -54,6 +54,10 @@
     width: 100px;
     background-color: #f56962;
     right: 0;
+
+    &:active {
+      background-color: #b34943;
+    }
   }
 
   input {

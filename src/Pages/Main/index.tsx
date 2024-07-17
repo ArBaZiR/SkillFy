@@ -4,14 +4,16 @@ import style from "./main.module.scss";
 import LearnSearch from "./LearnSearch";
 import CourseCategory from "./CourseCategory";
 import CourseBlock from "./CourseBlock";
+import { useState } from "react";
 
 export default function Main() {
+  const [titleCrs, setTitleCrs] = useState("");
   //
   return (
     <div className={style.block}>
-      <LearnSearch />
+      <LearnSearch setTitleCrs={setTitleCrs} />
       <CourseCategory />
-      <CourseBlock />
+      <CourseBlock titleCrs={titleCrs} />
     </div>
   );
 }

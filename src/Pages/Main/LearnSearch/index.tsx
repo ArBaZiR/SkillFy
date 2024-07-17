@@ -1,7 +1,14 @@
 //
+import { useState } from "react";
 import style from "./learn.module.scss";
 
-export default function LearnSearch() {
+export default function LearnSearch({
+  setTitleCrs,
+}: {
+  setTitleCrs: Function;
+}) {
+  const [title, setTitle] = useState("");
+  //
   return (
     <div className={style.learn__Search}>
       <div className={style.background} />
@@ -13,8 +20,15 @@ export default function LearnSearch() {
           Choose from over 100,000 online video <br /> courses with new
           additions published every mont.
         </p>
-        <label className={style.search} htmlFor="">
-          <input type="text" placeholder="Search your favourite course" />
+        <form
+          onSubmit={(e) => (e.preventDefault(), setTitleCrs(title))}
+          className={style.search}
+        >
+          <input
+            type="text"
+            placeholder="Search your favourite course"
+            onChange={(e) => setTitle(e.target.value)}
+          />
           <button>
             <svg
               width="27"
@@ -29,7 +43,7 @@ export default function LearnSearch() {
               />
             </svg>
           </button>
-        </label>
+        </form>
       </div>
       <img src="/img/girl.png" alt="" />
     </div>

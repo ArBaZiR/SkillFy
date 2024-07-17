@@ -16,23 +16,23 @@ export default function Header() {
   const btn = [
     {
       title: "Home",
-      link: "",
+      link: "/profile",
     },
     {
       title: "Pages",
-      link: "",
+      link: "/",
     },
     {
       title: "Courses",
-      link: "",
+      link: "/",
     },
     {
       title: "Features",
-      link: "",
+      link: "/",
     },
     {
       title: "Blog",
-      link: "",
+      link: "/",
     },
   ];
 
@@ -45,7 +45,9 @@ export default function Header() {
         <div className={style.main__block}>
           <div className={style.btn__block}>
             {btn.map((el, i) => (
-              <button key={i}>{el.title}</button>
+              <Link key={i} to={el.link}>
+                <button>{el.title}</button>
+              </Link>
             ))}
           </div>
           <label className={style.search}>

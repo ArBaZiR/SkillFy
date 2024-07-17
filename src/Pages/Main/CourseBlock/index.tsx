@@ -15,39 +15,29 @@ type TypeUser = {
   ];
 };
 
-export default function CourseBlock() {
-  const [allCard, setAllcard] = useState([
-    {
-      name: "",
-      role: "",
-      myCourse: [
-        {
-          title: "",
-          desc: "",
-          courseTxt: "",
-        },
-      ],
-    },
-  ]);
+export default function CourseBlock({ titleCrs }: { titleCrs: string }) {
+  const [allCard, setAllcard] = useState<TypeUser[]>([]);
 
   useEffect(() => {
-    fetch("https://0d4ea3e525f71456.mokky.dev/users?_select=myCourse,role,name")
+    fetch(
+      `https://0d4ea3e525f71456.mokky.dev/users?${
+        !titleCrs ? "_select=myCourse,role,name" : `myCourse.title=${titleCrs}`
+      }`
+    )
       .then((data) => data.json())
       .then((data) => {
+        const array: TypeUser[] = [];
         if (!data.statusCode) {
-          const newArray: Array<TypeUser> = [];
-          data.map(
-            (el: TypeUser) => el.role !== "Student" && newArray.push(el)
-          );
-          setAllcard(newArray);
+          data.map((el: TypeUser) => el.role !== "Student" && array.push(el));
         }
+        setAllcard(array);
       });
-  }, []);
+  }, [titleCrs]);
 
   return (
     <div className={style.block}>
       <div className={style.card__block}>
-        {allCard[0].role !== "" ? (
+        {allCard.length ? (
           allCard.map((elem) =>
             elem.myCourse.map((el, i) => (
               <div key={i} className={style.card}>
