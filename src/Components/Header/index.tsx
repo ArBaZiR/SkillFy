@@ -13,52 +13,11 @@ export default function Header() {
     }) => state.userSlice.status
   );
 
-  const btn = [
-    {
-      title: "Home",
-      link: "/profile",
-    },
-    {
-      title: "Pages",
-      link: "/",
-    },
-    {
-      title: "Courses",
-      link: "/",
-    },
-    {
-      title: "Features",
-      link: "/",
-    },
-    {
-      title: "Blog",
-      link: "/",
-    },
-  ];
-
   return (
     <div className={style.block}>
       <Link to={"/"}>
         <h1>Skillfy</h1>
       </Link>
-      {status && (
-        <div className={style.main__block}>
-          <div className={style.btn__block}>
-            {btn.map((el, i) => (
-              <Link key={i} to={el.link}>
-                <button>{el.title}</button>
-              </Link>
-            ))}
-          </div>
-          <label className={style.search}>
-            <img src="/icon/search.svg" alt="#!" />
-            <input type="text" placeholder="Search" />
-          </label>
-          <button className={style.cart}>
-            <img src="/icon/cart.svg" alt="" />
-          </button>
-        </div>
-      )}
       {status ? (
         <div className={style.profile}>
           <Link to={"/profile"}>

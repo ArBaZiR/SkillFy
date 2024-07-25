@@ -34,15 +34,6 @@ export default function CourseBlock({ titleCrs }: { titleCrs: string }) {
       });
   }, [titleCrs]);
 
-  // useEffect(() => {
-  //   fetch(`https://0d4ea3e525f71456.mokky.dev/users?${`myCourse.title=12312`}`)
-  //     .then((data) => data.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     });
-  // }, []);
-  console.log(allCard);
-
   return (
     <div className={style.block}>
       <div className={style.card__block}>
