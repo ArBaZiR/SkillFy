@@ -102,7 +102,7 @@ export default function TeatherSkills() {
   }
 
   function RemoveInfo(i: number) {
-    // Пока что пирдумал так, но это полная ХУЙНЯ
+    // Пока что придумал так, но это полная ХУЙНЯ
     const deleteInfo = [...infoArray[infoBtnInd].text];
     if (deleteInfo[i] !== "None") {
       deleteInfo.splice(i, 1);
